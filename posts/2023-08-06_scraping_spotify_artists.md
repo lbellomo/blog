@@ -8,7 +8,7 @@ First we need to find some genres to start looking for artists. The api [/recomm
 
 ```
 $ http GET https://api.spotify.com/v1/recommendations/available-genre-seeds \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq ".genres"
+  Authorization:'Bearer BQ..G0' | jq ".genres"
 [
 "acoustic",
 "afrobeat",
@@ -27,19 +27,19 @@ Then, we will iterate through all these genres to search for artists. As the api
 # search for genre 'world-music'
 # less that 1000
 $ http GET 'https://api.spotify.com/v1/search?q=genre: world-music&type=artist' \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 831
 
 # search for genre 'alternative'
 # 1000 results, surely there are many more
 $ http GET 'https://api.spotify.com/v1/search?q=genre: alternative&type=artist' \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 1000
 
 # serach for genre 'alternative' but filter by year '1980-1995'
 # less that 1000
 $ http GET 'https://api.spotify.com/v1/search?q=genre: alternative year: 1980-1995&type=artist' \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 753
 ```
 
@@ -47,19 +47,19 @@ For the most popular genres we have no choice but to iterate from one year at a 
 
 ```
 $ http GET 'https://api.spotify.com/v1/search?q=genre: rock year: 1999&type=artist' \       
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 1000
 $ http GET 'https://api.spotify.com/v1/search?q=genre: rock year: 2000&type=artist' \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 1000
 
 [...]
 
 $ http GET 'https://api.spotify.com/v1/search?q=genre: rock year: 2022&type=artist' \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 1000
 $ http GET 'https://api.spotify.com/v1/search?q=genre: rock year: 2023&type=artist' \
-  Authorization:'Bearer BQDfkI3u7KoMxoz3Jm7DW6rTii3JCaJEIS9OLhl-8sH8Z1rNM3oU0qCajUVHMW2ejHD4PG11PwDGY2sqZDAlJZXev8XmniYaPeNqzXlEYgqa8vQ6hG0' | jq .artists.total
+  Authorization:'Bearer BQ..G0' | jq .artists.total
 1000
 ```
 
